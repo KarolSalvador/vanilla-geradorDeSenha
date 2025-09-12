@@ -2,6 +2,24 @@ const normalBtn = document.getElementById("normal-btn");
 const prioritarioBtn = document.getElementById("prioritario-btn");
 const voltarBtn = document.getElementById("voltar-btn");
 
+const tipoAtendimento = localStorage.getItem("tipoAtendimento");
+console.log(tipoAtendimento);
+
+const especialidadeBtns = document.querySelectorAll(
+  ".cards-especialidade .card-btn"
+);
+
+especialidadeBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const especialidade = button.textContent;
+    const dadosCompletos = {
+      tipo: tipoAtendimento,
+      especialidade: especialidade,
+    };
+    console.log(dadosCompletos);
+  });
+});
+
 if (voltarBtn) {
   voltarBtn.addEventListener("click", () => {
     window.location.href = "index.html";
