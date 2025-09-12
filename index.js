@@ -10,7 +10,7 @@ if (normalBtn) {
 
 if (prioritarioBtn) {
   prioritarioBtn.addEventListener("click", () => {
-    localStorage.setItem("tipoAtendimento", "prioritario");
+    localStorage.setItem("tipoAtendimento", "Prioritario");
     window.location.href = "especialidade.html";
   });
 }
