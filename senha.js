@@ -10,3 +10,11 @@ especialidadeSpan.textContent = especialidade;
 const numeroSenha = "Ate01";
 const numeroSenhaH2 = document.getElementById("numero-senha");
 numeroSenhaH2.textContent = `Senha: ${numeroSenha}`;
+
+const voltarBtn = document.getElementById("voltar-btn");
+
+if (voltarBtn) {
+  voltarBtn.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+}
