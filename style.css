@@ -70,3 +70,17 @@ main {
 .voltar {
   margin: 5em 0 0;
 }
+
+.senha-container {
+  background-color: #ffe4c4;
+  border: 1px dashed #748e71;
+  padding: 2em;
+  margin: 2em;
+  width: 300px;
+  text-align: center;
+}
+
+.senha-detalhes h2 {
+  font-size: 3em;
+  color: #333;
+}
