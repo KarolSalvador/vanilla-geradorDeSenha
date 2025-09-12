@@ -5,19 +5,27 @@
   --hoover-btn: #637c60;
 }
 
-body,
-html {
+body {
   background-color: var(--primary-color);
   margin: 0;
   padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.logomarca {
+  position: absolute;
+  top: 2rem;
+  left: 2em;
 }
 
 main {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .cards {
@@ -39,7 +47,8 @@ main {
   gap: 8em;
 }
 
-.card-btn {
+.card-btn,
+.voltar-btn {
   width: 250px;
   padding: 20px;
   border-radius: 8px;
@@ -52,7 +61,12 @@ main {
   -moz-box-shadow: -4px 10px 23px 4px rgba(0, 0, 0, 0.47);
 }
 
-.card-btn:hover {
+.card-btn:hover,
+.voltar-btn:hover {
   background-color: var(--hoover-btn);
   cursor: pointer;
+}
+
+.voltar {
+  margin: 5em 0 0;
 }
