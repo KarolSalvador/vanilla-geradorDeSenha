@@ -39,7 +39,7 @@ main {
 
 .cards-especialidade {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 200px 200px;
   justify-content: center;
   justify-items: center;
   align-items: center;
