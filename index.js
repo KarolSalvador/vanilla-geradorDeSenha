@@ -3,7 +3,7 @@ const prioritarioBtn = document.getElementById("prioritario-btn");
 
 if (normalBtn) {
   normalBtn.addEventListener("click", () => {
-    localStorage.setItem("tipoAtendimento", "normal");
+    localStorage.setItem("tipoAtendimento", "Normal");
     window.location.href = "especialidade.html";
   });
 }
