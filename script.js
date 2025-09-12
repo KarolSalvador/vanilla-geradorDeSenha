@@ -12,6 +12,7 @@ const especialidadeBtns = document.querySelectorAll(
 especialidadeBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const especialidade = button.textContent;
+    localStorage.setItem("especialidade", especialidade);
     const dadosCompletos = {
       tipo: tipoAtendimento,
       especialidade: especialidade,
