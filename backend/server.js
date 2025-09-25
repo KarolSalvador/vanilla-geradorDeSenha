@@ -18,8 +18,10 @@ let proximoGuiche = 1; //contador do guiche
 
 //função para gerar a próxima senha e inserir na fila
 function gerarSenha(tipo, especialidade) {
+  const tipoPadronizado = tipo.toLoweCase();
+
   ///se o tipo for identico a prioritario define como P(prioritario) se não for define como N(normal)
-  const prefixo = tipo === "prioritario" ? "P" : "N";
+  const prefixo = tipoPadronizado === "prioritario" ? "P" : "N";
 
   //define o formato da senha, método padStart(tamanhoDaString, caractere que será usado no inicio) preenche com zeros à esquerda
   const numeroFormatado = String(senhasEmitidas).padStart(3, "0");
@@ -28,13 +30,13 @@ function gerarSenha(tipo, especialidade) {
   //define a estrutura do objeto JavaScript que será convertido em JSON quando o mandar para o front
   const paciente = {
     senha: senha,
-    tipo: tipo,
+    tipo: tipoPadronizado,
     especialidade: especialidade,
     guiche: null,
   };
 
   //lógica para incrementar a senha e adicionar a fila
-  if (tipo === "prioritario") {
+  if (tipoPadronizado === "prioritario") {
     filaPrioritaria.push(paciente);
   } else {
     filaNormal.push(paciente);
