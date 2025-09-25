@@ -3,14 +3,16 @@ const prioritarioBtn = document.getElementById("prioritario-btn");
 
 if (normalBtn) {
   normalBtn.addEventListener("click", () => {
-    localStorage.setItem("tipoAtendimento", "Normal");
+    localStorage.setItem("tipoAtendimento", "normal");
+    localStorage.setItem("tipoAtendimentoDisplay", "Atendimento Normal");
     window.location.href = "especialidade.html";
   });
 }
 
 if (prioritarioBtn) {
   prioritarioBtn.addEventListener("click", () => {
-    localStorage.setItem("tipoAtendimento", "Prioritário");
+    localStorage.setItem("tipoAtendimento", "prioritario");
+    localStorage.setItem("tipoAtendimentoDisplay", "Atendimento Prioritário");
     window.location.href = "especialidade.html";
   });
 }

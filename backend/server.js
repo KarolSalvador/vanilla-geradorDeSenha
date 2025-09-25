@@ -10,6 +10,10 @@ const PORT = 5000;
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Servidor da Fila está rodando corretamente!");
+});
+
 //Lógica das senhas serão let pois vão ser alteradas conforme criação
 let senhasEmitidas = 1; //contador das senhas
 let filaPrioritaria = []; //prioritária e normal serão um array de senhas
@@ -18,7 +22,7 @@ let proximoGuiche = 1; //contador do guiche
 
 //função para gerar a próxima senha e inserir na fila
 function gerarSenha(tipo, especialidade) {
-  const tipoPadronizado = tipo.toLoweCase();
+  const tipoPadronizado = tipo.toLowerCase();
 
   ///se o tipo for identico a prioritario define como P(prioritario) se não for define como N(normal)
   const prefixo = tipoPadronizado === "prioritario" ? "P" : "N";
@@ -79,7 +83,7 @@ app.get("/chamar-proximo", (req, res) => {
 
     res.json(pacienteChamado);
   } else {
-    res.jason({ mensagem: "Fila vazia." });
+    res.json({ mensagem: "Fila vazia." });
   }
 });
 

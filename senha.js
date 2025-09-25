@@ -1,5 +1,5 @@
 //PEgaos dados salvos no localStorage
-const tipoAtendimento = localStorage.getItem("tipoAtendimento");
+const tipoAtendimentoDisplay = localStorage.getItem("tipoAtendimentoDisplay");
 const especialidade = localStorage.getItem("especialidade");
 const senhaGerada = localStorage.getItem("senhaGerada");
 
@@ -9,7 +9,7 @@ const especialidadeSpan = document.getElementById("especialidade");
 const numeroSenhaH2 = document.getElementById("numero-senha");
 
 //atualiza o conteúdo dos elementos com os dados gerados
-tipoAtendimentoSpan.textContent = tipoAtendimento;
+tipoAtendimentoSpan.textContent = tipoAtendimentoDisplay;
 especialidadeSpan.textContent = especialidade;
 
 //exibe a senha gerada pelo backend
@@ -21,6 +21,7 @@ if (voltarBtn) {
   voltarBtn.addEventListener("click", () => {
     //limpa a senha do localStorage para que gerar nova senha
     localStorage.removeItem("tipoAtendimento");
+    localStorage.removeItem("tipoAtendimentoDisplay");
     localStorage.removeItem("especialidade");
     localStorage.removeItem("senhaGerada");
 
