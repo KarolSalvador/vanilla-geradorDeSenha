@@ -108,3 +108,73 @@ main {
     width: 80%;
   }
 }
+
+/* --- ESTILIZAÇÃO ESPECÍFICA DO PAINEL DE SENHAS --- */
+
+.painel-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 3em 5%;
+  gap: 2em;
+}
+
+.senha-principal {
+  flex-basis: 60%; /* Ocupa 60% da área para o destaque principal */
+  text-align: center;
+}
+
+.senha-principal h1 {
+  font-size: 2.5em;
+  color: var(--secundary-color); /* Usa a cor do seu tema */
+}
+
+.chamada-atual {
+  border: 4px solid var(--secundary-color);
+  border-radius: 12px;
+  padding: 2em;
+  margin-top: 1em;
+  background-color: #ffffff; /* Fundo branco para contraste */
+}
+
+.rotulo-senha,
+.rotulo-guiche {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.2em;
+}
+
+.senha-destaque {
+  font-size: 8em; /* TAMANHO ENORME para ser visto de longe */
+  font-weight: bold;
+  color: #c0392b; /* Cor de destaque (vermelho/laranja forte) */
+  line-height: 1; /* Garante que não haja espaçamento vertical extra */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.guiche-destaque {
+  font-size: 4em;
+  font-weight: bold;
+  color: var(--secundary-color);
+  margin: 0;
+}
+
+.historico {
+  flex-basis: 35%; /* Ocupa 35% da área para o histórico */
+}
+
+.historico h2 {
+  color: #777;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+#historico-lista {
+  list-style: none;
+  padding: 0;
+}
