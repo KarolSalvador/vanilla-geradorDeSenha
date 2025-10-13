@@ -178,3 +178,19 @@ main {
   list-style: none;
   padding: 0;
 }
+
+/* EFEITO DE DESTAQUE PARA CADA NOVA CHAMADA NO PAINEL */
+.chamda-nova {
+  animation: destacar 0.5s 3;
+}
+
+@keyframes destacar {
+  0% {
+    background-color: #ffe0b2;
+    transform: scale(1.02);
+  }
+  100% {
+    background-color: #ffffff;
+    transform: scale(1);
+  }
+}
