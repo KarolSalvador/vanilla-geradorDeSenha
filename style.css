@@ -122,21 +122,21 @@ main {
 }
 
 .senha-principal {
-  flex-basis: 60%; /* Ocupa 60% da área para o destaque principal */
+  flex-basis: 60%;
   text-align: center;
 }
 
 .senha-principal h1 {
   font-size: 2.5em;
-  color: var(--secundary-color); /* Usa a cor do seu tema */
+  color: var(--secundary-color);
 }
 
 .chamada-atual {
   border: 4px solid var(--secundary-color);
   border-radius: 12px;
-  padding: 2em;
+  padding: 4.5em 2em;
   margin-top: 1em;
-  background-color: #ffffff; /* Fundo branco para contraste */
+  background-color: #ffffff;
 }
 
 .rotulo-senha,
@@ -148,10 +148,10 @@ main {
 }
 
 .senha-destaque {
-  font-size: 8em; /* TAMANHO ENORME para ser visto de longe */
+  font-size: 8em;
   font-weight: bold;
-  color: #c0392b; /* Cor de destaque (vermelho/laranja forte) */
-  line-height: 1; /* Garante que não haja espaçamento vertical extra */
+  color: #c0392b;
+  line-height: 1;
   margin-top: 0;
   margin-bottom: 0.5em;
 }
@@ -164,7 +164,7 @@ main {
 }
 
 .historico {
-  flex-basis: 35%; /* Ocupa 35% da área para o histórico */
+  flex-basis: 35%;
 }
 
 .historico h2 {
@@ -177,6 +177,16 @@ main {
 #historico-lista {
   list-style: none;
   padding: 0;
+}
+
+li {
+  border: 4px solid var(--secundary-color);
+  border-radius: 12px;
+  padding: 0.5em;
+  margin-top: 1em;
+  background-color: #ffffff;
+  font-size: 2em;
+  color: var(--secundary-color);
 }
 
 /* EFEITO DE DESTAQUE PARA CADA NOVA CHAMADA NO PAINEL */
