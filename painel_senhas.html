@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Senhas - Clínica</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="logomarca">
+      <img
+        src="./assets/seu-logo-aqui-1.png"
+        alt="sua logo aqui"
+        width="150"
+        height="auto"
+      />
+    </header>
+
+    <main class="painel-main">
+      <div class="senha-principal">
+        <h1>PRÓXIMO ATENDIMENTO</h1>
+        <div class="chamada-atual">
+          <p class="rotulo-senha">SENHA</p>
+          <p id="senha-chamada" class="senha-destaque">--</p>
+          <p class="rotulo-guiche">GUICHÊ</p>
+          <p id="guiche-chamado" class="guiche-destaque">--</p>
+        </div>
+      </div>
+
+      <div class="historico">
+        <h2>Últimas Chamadas</h2>
+        <ul id="historico-lista"></ul>
+      </div>
+    </main>
+
+    <script src="painel.js"></script>
+  </body>
+</html>
