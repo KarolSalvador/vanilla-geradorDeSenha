@@ -7,6 +7,26 @@ const historicoLista = document.getElementById("historico-lista");
 let historicoChamadas = [];
 let ultimaSenhaExibida = "";
 
+//Monitora a última chamada feita pelo atendente
+async function monitorarChamadas() {
+  try {
+    const response = await fetch("http://localhost:5000/status-fila");
+    const status = await response.json();
+
+    // CORREÇÃO: Usar a chave correta retornada pelo servidor (ultimaSenhaChamada)
+    const ultimaChamada = status.ultimaSenhaChamada;
+
+    if (ultimaChamada.senha !== ultimaSenhaExibida) {
+      // Se a senha mudou, atualiza a tela
+      atualizarPainel(ultimaChamada);
+      adicionarAoHistorico(ultimaChamada);
+      ultimaSenhaExibida = ultimaChamada.senha;
+    }
+  } catch (error) {
+    console.error("Erro ao buscar status:", error);
+  }
+}
+
 //função para atualizar os elementos na tela
 function atualizarPainel(paciente) {
   senhaChamadaDisplay.textContent = paciente.senha;

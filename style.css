@@ -35,6 +35,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  margin: 3em;
 }
 
 .cards {
@@ -94,30 +95,6 @@ main {
 .senha-detalhes h2 {
   font-size: 3em;
   color: #333;
-}
-
-/*ESTILIZAÇÃO PARA TELAS MENORES*/
-
-@media (max-width: 600px) {
-  .logomarca {
-    padding: 1em;
-  }
-
-  .cards {
-    flex-direction: column;
-    gap: 2em;
-  }
-
-  .cards-especialidade {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-  }
-
-  .card-btn {
-    width: 80%;
-  }
 }
 
 /* --- ESTILIZAÇÃO ESPECÍFICA DO PAINEL DE SENHAS --- */
@@ -309,6 +286,8 @@ li {
   border-left-color: #c0392b !important;
 }
 
+/*ESTILIZAÇÃO PARA TELAS MENORES */
+
 @media (max-width: 600px) {
   .logomarca {
     padding: 1em;
@@ -354,6 +333,6 @@ li {
 
   .card-btn,
   .voltar-btn {
-    width: 80%;
+    width: 100%;
   }
 }

@@ -70,7 +70,7 @@ app.post("/gerar-senha", (req, res) => {
 });
 
 //ROTA2: GET para chamar próximo da fila
-app.get("/chamar-paciente", (req, res) => {
+app.post("/chamar-paciente", (req, res) => {
   //recebe o número do guichê do atendente
   const { guiche } = req.body;
   let pacienteChamado = null;

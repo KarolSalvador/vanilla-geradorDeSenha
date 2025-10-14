@@ -37,7 +37,7 @@ async function atualizarFilaEmEspera() {
 
 //função para chamar o próximo paciente
 async function chamarProximoPaciente() {
-  const guicheSelecionado = guicheSelect.ariaValueMax;
+  const guicheSelecionado = guicheSelect.value;
 
   //obrigada atendente a escolher qual guichê
   if (!guicheSelecionado) {
@@ -77,7 +77,7 @@ async function chamarProximoPaciente() {
     alert("Erro ao tentar chamar paciente. Verifique o servidor.");
   } finally {
     chamarBtn.disabled = false;
-    chamarBtn.textContent = "Chamar Próximo PAciente";
+    chamarBtn.textContent = "Chamar Próximo Paciente";
   }
 }
 
