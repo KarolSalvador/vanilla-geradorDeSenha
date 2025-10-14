@@ -18,7 +18,10 @@ app.get("/", (req, res) => {
 let senhasEmitidas = 1; //contador das senhas
 let filaPrioritaria = []; //prioritária e normal serão um array de senhas
 let filaNormal = [];
-let proximoGuiche = 1; //contador do guiche
+// CONTROLE PARA ALTERNÂNCIA 1:1 (Próxima chamada será prioritária)
+let ultimoTipoChamado = "normal";
+// Armazena a última chamada para o Painel de Senhas
+let ultimaSenhaChamada = { senha: "--", guiche: "--", tipo: "--" };
 
 //função para gerar a próxima senha e inserir na fila
 function gerarSenha(tipo, especialidade) {
@@ -67,24 +70,55 @@ app.post("/gerar-senha", (req, res) => {
 });
 
 //ROTA2: GET para chamar próximo da fila
-app.get("/chamar-proximo", (req, res) => {
+app.get("/chamar-paciente", (req, res) => {
+  //recebe o número do guichê do atendente
+  const { guiche } = req.body;
   let pacienteChamado = null;
 
-  if (filaPrioritaria.length > 0) {
+  // Lógica para decidir quem chamar:
+  // Deve chamar Prioritário se: 1) A última chamada foi Normal E a fila P não está vazia; OU 2) A fila N está vazia.
+  const deveChamarPrioritario =
+    (ultimoTipoChamado === "normal" && filaPrioritaria.length > 0) ||
+    filaNormal.length === 0;
+
+  if (deveChamarPrioritario && filaPrioritaria.length > 0) {
+    //chama prioritário
     pacienteChamado = filaPrioritaria.shift();
+    ultimoTipoChamado = "prioritario";
   } else if (filaNormal.length > 0) {
+    //chama normal
     pacienteChamado = filaNormal.shift();
+    ultimoTipoChamado = "normal";
+  } else if (filaPrioritaria.length > 0) {
+    //se não tiver normal chama prioritário
+    pacienteChamado = filaPrioritaria.shift();
+    ultimoTipoChamado = "prioritario";
   }
 
   if (pacienteChamado) {
-    pacienteChamado.guiche = proximoGuiche;
-    proximoGuiche++;
-    if (proximoGuiche > 10) proximoGuiche = 1;
+    //atribui o guiche ao paciente chamado
+    pacienteChamado.guiche = guiche;
 
-    res.json(pacienteChamado);
+    //atualiza os dados do json para o painel de senhas consumir e exibir
+    ultimaSenhaChamada = {
+      senha: pacienteChamado.senha,
+      guiche: pacienteChamado.guiche,
+      tipo: pacienteChamado.tipo,
+    };
+    res.json({ mensagem: "Chamada realizada", paciente: pacienteChamado });
   } else {
-    res.json({ mensagem: "Fila vazia." });
+    res.status(200).json({ mensagem: "Fila vazia." });
   }
+});
+
+//Rota GET para o painel atendente buscar o estado atual da fila
+app.get("/status-fila", (req, res) => {
+  //retorna filas de espera e última senha chaamda
+  res.json({
+    filaPrioritaria: filaPrioritaria,
+    filaNormal: filaNormal,
+    ultimaSenhaChamada: ultimaSenhaChamada,
+  });
 });
 
 app.listen(PORT, () => {
