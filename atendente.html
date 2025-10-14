@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Fila - Atendente</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="logomarca">
+      <p>Área do Atendente</p>
+    </header>
+
+    <main class="atendente-main">
+      <div class="controles">
+        <h1>Chamar Próximo Paciente</h1>
+
+        <div class="guiche-select-container">
+          <label for="guiche-select">Selecione seu Guichê:</label>
+          <select id="guiche-select">
+            <option value="" disabled selected>Escolha o Guichê</option>
+            <option value="1">Guichê 1</option>
+            <option value="2">Guichê 2</option>
+            <option value="3">Guichê 3</option>
+            <option value="4">Guichê 4</option>
+          </select>
+        </div>
+
+        <button id="chamar-btn" class="card-btn">
+          Chamar Próximo Paciente
+        </button>
+      </div>
+
+      <div class="fila-espera-container">
+        <h2>Pacientes Aguardando:</h2>
+        <ul id="fila-espera-lista">
+          <li>Fila vazia...</li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="atendente.js"></script>
+  </body>
+</html>
