@@ -97,6 +97,12 @@ main {
   color: #333;
 }
 
+.acessar-telas {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2em;
+}
+
 /* --- ESTILIZAÇÃO ESPECÍFICA DO PAINEL DE SENHAS --- */
 
 .painel-main {
