@@ -5,37 +5,14 @@ const historicoLista = document.getElementById("historico-lista");
 
 //array para salvar histórico
 let historicoChamadas = [];
+let ultimaSenhaExibida = "";
 
-//função que vai buscar qual a próxima senha
-async function buscarProximaSenha() {
-  try {
-    //rota que o back usa para chamar próx paciente
-    const response = await fetch("http://localhost:5000/chamar-proximo");
-    const data = await response.json();
-
-    //se houver senha, atualiza painel
-    if (data.senha) {
-      atualizarPainel(data);
-      adicionarAoHistorico(data);
-
-      //se fila estiver vazia entra no else
-    } else {
-      senhaChamadaDisplay.textContent = "AGUARDE";
-      guicheChamadoDisplay.textContent = "00";
-    }
-  } catch (error) {
-    console.error("Erro ao buscar senha:", error);
-    senhaChamadaDisplay.textContent = "ERRO DE CONEXÃO";
-    guicheChamadoDisplay.textContent = "00";
-  }
-}
-
-//função para atualziar principais elementos da tela
+//função para atualizar os elementos na tela
 function atualizarPainel(paciente) {
   senhaChamadaDisplay.textContent = paciente.senha;
   guicheChamadoDisplay.textContent = paciente.guiche;
 
-  //efeito de piscar na tela para maior interatividade
+  //efeito de destaque
   const principal = document.querySelector(".chamada-atual");
   principal.classList.add("chamada-nova");
   setTimeout(() => {
@@ -45,7 +22,11 @@ function atualizarPainel(paciente) {
 
 //função para persistência do histórico recente
 function adicionarAoHistorico(paciente) {
-  const item = `${paciente.senha} - Guichê ${paciente.guiche}`;
+  //evita colocar o valor inicial de '--' ao histórico
+  if (paciente.senha === "--") return;
+
+  const tipoTexto = paciente.tipo === "prioritario" ? " (P)" : " (N)";
+  const item = `${paciente.senha} - Guichê ${paciente.guiche}${tipoTexto}`;
   historicoChamadas.unshift(item); //unshift adiciona ao inicio do array para ter como visualização em cima, mostrando ser o último a ter sido chamado
 
   //limitar histórico a 5 itens
@@ -63,5 +44,6 @@ function adicionarAoHistorico(paciente) {
   });
 }
 
-//chama a função a cada 5 segundos para verificar se houve uma nova senha chamada
-setInterval(buscarProximaSenha, 5000);
+// Inicia o monitoramento a cada 3 segundos
+monitorarChamadas();
+setInterval(monitorarChamadas, 3000);
