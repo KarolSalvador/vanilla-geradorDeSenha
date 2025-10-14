@@ -22,12 +22,12 @@ if (prioritarioBtn) {
 
 if (painelSenhasBtn) {
   painelSenhasBtn.addEventListener("click", () => {
-    window.location.href = "painel_senhas.html";
+    window.open("painel_senhas.html", "_blank");
   });
 }
 
 if (painelAtendeteBtn) {
   painelAtendeteBtn.addEventListener("click", () => {
-    window.location.href = "atendente.html";
+    window.open("atendente.html", "_blank");
   });
 }
