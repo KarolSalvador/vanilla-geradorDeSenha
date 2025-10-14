@@ -231,7 +231,6 @@ li {
 }
 
 .controles {
-  flex-basis: 50%;
   padding: 1.5em;
   border-right: 1px solid #ddd;
 }
@@ -239,6 +238,7 @@ li {
 .controles,
 .fila-espera-container {
   flex: 1;
+  flex-basis: 50%;
   min-width: 0;
 }
 
@@ -273,7 +273,6 @@ li {
 }
 
 .fila-espera-container {
-  flex-basis: 50%;
   padding: 1.5em;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -311,9 +310,26 @@ li {
 }
 
 @media (max-width: 600px) {
+  .logomarca {
+    padding: 1em;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .cards-especialidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+
   .atendente-main {
     flex-direction: column;
     padding: 1em;
+    gap: 1em;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
@@ -324,8 +340,20 @@ li {
   .controles,
   .fila-espera-container {
     flex-basis: 100%;
-    width: 100%;
     border-right: none;
+    width: 100%;
     padding: 0;
+  }
+
+  #guiche-select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .card-btn,
+  .voltar-btn {
+    width: 80%;
   }
 }
