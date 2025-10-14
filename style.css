@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
 :root {
   box-sizing: border-box;
   --primary-color: #f6f0f0;
@@ -5,10 +10,16 @@
   --hoover-btn: #637c60;
 }
 
+html,
 body {
-  background-color: var(--primary-color);
+  width: 100%;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--primary-color);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -202,5 +213,119 @@ li {
   100% {
     background-color: #ffffff;
     transform: scale(1);
+  }
+}
+
+/* ESTILIZAÇÃO TELA DO ATENDENTE */
+.atendente-main {
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 2em;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.controles {
+  flex-basis: 50%;
+  padding: 1.5em;
+  border-right: 1px solid #ddd;
+}
+
+.controles,
+.fila-espera-container {
+  flex: 1;
+  min-width: 0;
+}
+
+.controles h1 {
+  font-size: 1.8em;
+  color: var(--secundary-color);
+  margin-bottom: 1em;
+}
+
+.guiche-select-container {
+  margin-bottom: 2em;
+}
+
+.guiche-select-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+#guiche-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#chamar-btn {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fila-espera-container {
+  flex-basis: 50%;
+  padding: 1.5em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.fila-espera-container h2 {
+  font-size: 1.5em;
+  color: #c0392b;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+#fila-espera-lista {
+  list-style: none;
+  padding: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+#fila-espera-lista li {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  font-weight: 500;
+  border-left: 5p solid transparent;
+  word-wrap: break-word;
+}
+
+.prioritario {
+  border-left-color: #c0392b !important;
+}
+
+@media (max-width: 600px) {
+  .atendente-main {
+    flex-direction: column;
+    padding: 1em;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    align-self: center;
+  }
+
+  .controles,
+  .fila-espera-container {
+    flex-basis: 100%;
+    width: 100%;
+    border-right: none;
+    padding: 0;
   }
 }
