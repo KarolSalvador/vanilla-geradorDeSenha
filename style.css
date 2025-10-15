@@ -34,7 +34,7 @@ body {
 }
 
 .logo-img {
-  margin-left: 1em;
+  margin: 0.5em;
 }
 
 .menu {
@@ -356,6 +356,10 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 2em;
+  }
+
+  .painel-main {
+    flex-direction: column;
   }
 
   .atendente-main {
