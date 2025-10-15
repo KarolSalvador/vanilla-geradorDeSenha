@@ -336,9 +336,10 @@ main {
 
 /*ESTILIZAÇÃO PARA TELAS MENORES */
 
-@media (max-width: 600px) {
-  .logomarca {
+@media (max-width: 500px) {
+  .header {
     padding: 1em;
+    align-items: center;
   }
 
   .cards {
