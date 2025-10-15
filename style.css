@@ -342,6 +342,10 @@ main {
     align-items: center;
   }
 
+  .menu-header {
+    font-size: 10px;
+  }
+
   .cards {
     flex-direction: column;
     gap: 2em;
