@@ -337,6 +337,18 @@ main {
 /*ESTILIZAÇÃO PARA TELAS MENORES */
 
 @media (max-width: 500px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .senha-destaque {
+    font-size: 4em;
+  }
+
+  .guiche-destaque {
+    font-size: 2em;
+  }
+
   .header {
     padding: 1em;
     align-items: center;
